@@ -1,14 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7joci3a0t3fb"]
+[gd_scene load_steps=4 format=3 uid="uid://c7joci3a0t3fb"]
 
 [ext_resource type="Script" path="res://Screens/CityScreens/Buildings/GovernmentCenter/government_center_scene.gd" id="1_da5no"]
 [ext_resource type="PackedScene" uid="uid://f77t4dd6qskq" path="res://Screens/BaseUIScene.tscn" id="2_nw2yv"]
+[ext_resource type="Texture2D" uid="uid://ixkqwgowbreh" path="res://Screens/CityScreens/Buildings/GovernmentCenter/government_center_thumb.png" id="3_ug5mx"]
 
 [node name="GovernmentCenterScene" type="Node2D"]
 script = ExtResource("1_da5no")
 
 [node name="BaseUiScene" parent="." instance=ExtResource("2_nw2yv")]
 
-[node name="VBoxContainer" parent="BaseUiScene" index="0"]
+[node name="TextureRect" parent="BaseUiScene" index="0"]
+texture = ExtResource("3_ug5mx")
+
+[node name="VBoxContainer" parent="BaseUiScene" index="1"]
 offset_left = 38.0
 offset_top = 33.0
 offset_bottom = 733.0
