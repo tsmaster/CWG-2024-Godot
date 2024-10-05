@@ -1,0 +1,170 @@
+[gd_scene load_steps=9 format=3 uid="uid://cs838pno7aql6"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_jnwhw"]
+[ext_resource type="Texture2D" uid="uid://bdffat1pt3p8g" path="res://Screens/bigdicegameslogo.png" id="1_ples8"]
+[ext_resource type="Texture2D" uid="uid://8rumg7tspuqi" path="res://Screens/carswithgunstitle.png" id="2_mft21"]
+[ext_resource type="Texture2D" uid="uid://t0cyhdq4sd35" path="res://icon.svg" id="3_v8wrd"]
+[ext_resource type="Script" path="res://splashscreen.gd" id="3_xgk7j"]
+[ext_resource type="Texture2D" uid="uid://xuuu61jsktl2" path="res://Screens/MainMenuScreens/mainmenu.png" id="4_eup57"]
+[ext_resource type="Script" path="res://map.gd" id="13_v1lre"]
+[ext_resource type="Texture2D" uid="uid://d0feriiw0sm8n" path="res://sprites/car_red_1.png" id="14_ru5we"]
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("bdg_screen", "title_screen", "menu_screen", "map_screen", "about_screen")]
+script = ExtResource("1_jnwhw")
+bdg_screen = NodePath("Bigdicegameslogo")
+title_screen = NodePath("Carswithgunstitle")
+menu_screen = NodePath("Mainmenu")
+map_screen = NodePath("Map")
+about_screen = NodePath("AboutScreen")
+
+[node name="Bigdicegameslogo" type="Sprite2D" parent="." node_paths=PackedStringArray("timer")]
+visible = false
+position = Vector2(640, 384)
+texture = ExtResource("1_ples8")
+script = ExtResource("3_xgk7j")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="Bigdicegameslogo"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Carswithgunstitle" type="Sprite2D" parent="." node_paths=PackedStringArray("timer")]
+visible = false
+position = Vector2(640, 384)
+texture = ExtResource("2_mft21")
+script = ExtResource("3_xgk7j")
+timer = NodePath("Timer")
+
+[node name="Godot Icon" type="Sprite2D" parent="Carswithgunstitle"]
+position = Vector2(522, 263)
+texture = ExtResource("3_v8wrd")
+
+[node name="Timer" type="Timer" parent="Carswithgunstitle"]
+wait_time = 5.0
+one_shot = true
+
+[node name="AboutScreen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 384)
+texture = ExtResource("2_mft21")
+script = ExtResource("3_xgk7j")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="AboutScreen"]
+visible = false
+
+[node name="Panel" type="Panel" parent="AboutScreen/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(31.76, 19.04)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AboutScreen/CanvasLayer"]
+offset_right = 238.0
+offset_bottom = 99.0
+
+[node name="Title" type="Label" parent="AboutScreen/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Cars With Guns 2024
+"
+
+[node name="About Text" type="Label" parent="AboutScreen/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "By Dave LeCompte"
+
+[node name="DoneButton" type="Button" parent="AboutScreen/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Done
+"
+
+[node name="Mainmenu" type="Sprite2D" parent="."]
+position = Vector2(640, 384)
+texture = ExtResource("4_eup57")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Mainmenu"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Mainmenu/CanvasLayer"]
+offset_left = 937.0
+offset_top = 67.0
+offset_right = 1193.0
+offset_bottom = 267.0
+
+[node name="new game button" type="Button" parent="Mainmenu/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "New Game"
+
+[node name="load game button" type="Button" parent="Mainmenu/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Load Game"
+
+[node name="settings button" type="Button" parent="Mainmenu/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
+[node name="credits button" type="Button" parent="Mainmenu/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+
+[node name="map button" type="Button" parent="Mainmenu/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Map Demo"
+
+[node name="arm button" type="Button" parent="Mainmenu/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "FABRIK Arm"
+
+[node name="text button" type="Button" parent="Mainmenu/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Text Demo"
+
+[node name="exit button" type="Button" parent="Mainmenu/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Exit Game"
+
+[node name="Map" type="Node2D" parent="."]
+visible = false
+script = ExtResource("13_v1lre")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Map"]
+visible = false
+
+[node name="tiles_sz_1" type="CanvasModulate" parent="Map/CanvasLayer"]
+
+[node name="tiles_sz_5" type="CanvasModulate" parent="Map/CanvasLayer"]
+
+[node name="tiles_sz_15" type="CanvasModulate" parent="Map/CanvasLayer"]
+
+[node name="tiles_sz_45" type="CanvasModulate" parent="Map/CanvasLayer"]
+
+[node name="tiles_sz_90" type="CanvasModulate" parent="Map/CanvasLayer"]
+
+[node name="tiles_sz_360" type="CanvasModulate" parent="Map/CanvasLayer"]
+
+[node name="CityLabels" type="Node2D" parent="Map/CanvasLayer"]
+
+[node name="car_sprite" type="Sprite2D" parent="Map/CanvasLayer"]
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_ru5we")
+
+[connection signal="done" from="Bigdicegameslogo" to="." method="_on_bigdicegameslogo_done"]
+[connection signal="timeout" from="Bigdicegameslogo/Timer" to="Bigdicegameslogo" method="_on_timer_timeout"]
+[connection signal="done" from="Carswithgunstitle" to="." method="_on_carswithgunstitle_done"]
+[connection signal="timeout" from="Carswithgunstitle/Timer" to="Carswithgunstitle" method="_on_timer_timeout"]
+[connection signal="done" from="AboutScreen" to="." method="_on_carswithgunstitle_done"]
+[connection signal="pressed" from="Mainmenu/CanvasLayer/VBoxContainer/new game button" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="Mainmenu/CanvasLayer/VBoxContainer/load game button" to="." method="_on_load_game_button_pressed"]
+[connection signal="pressed" from="Mainmenu/CanvasLayer/VBoxContainer/settings button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Mainmenu/CanvasLayer/VBoxContainer/credits button" to="." method="_on_about_button_pressed"]
+[connection signal="pressed" from="Mainmenu/CanvasLayer/VBoxContainer/map button" to="." method="_on_map_button_pressed"]
+[connection signal="pressed" from="Mainmenu/CanvasLayer/VBoxContainer/exit button" to="." method="_on_exit_button_pressed"]
+[connection signal="done" from="Map" to="." method="_on_map_done"]

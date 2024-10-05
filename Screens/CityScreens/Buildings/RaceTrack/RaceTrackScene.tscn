@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://dau4k5lplk6m6"]
+
+[ext_resource type="Script" path="res://Screens/CityScreens/Buildings/RaceTrack/race_track_scene.gd" id="1_m2fqp"]
+[ext_resource type="PackedScene" uid="uid://f77t4dd6qskq" path="res://Screens/BaseUIScene.tscn" id="2_rohax"]
+[ext_resource type="Texture2D" uid="uid://h4si06jgsyvq" path="res://Screens/CityScreens/Buildings/RaceTrack/race_track_thumb.png" id="3_f2du4"]
+
+[node name="RaceTrackScene" type="Node2D"]
+script = ExtResource("1_m2fqp")
+
+[node name="BaseUiScene" parent="." instance=ExtResource("2_rohax")]
+
+[node name="TextureRect" parent="BaseUiScene" index="0"]
+texture = ExtResource("3_f2du4")
+
+[node name="VBoxContainer" parent="BaseUiScene" index="1"]
+offset_left = 38.0
+offset_top = 33.0
+offset_bottom = 733.0
+
+[node name="Title" parent="BaseUiScene/VBoxContainer" index="0"]
+text = "Arena Name"
+
+[node name="Label" type="Label" parent="BaseUiScene/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "<TODO you can race on a race track here>
+<TODO calendar of events will be procedurally generated>"
+autowrap_mode = 3
+
+[node name="Activity TabContainer" type="TabContainer" parent="BaseUiScene/VBoxContainer" index="2"]
+layout_mode = 2
+current_tab = 0
+
+[node name="Races" type="VBoxContainer" parent="BaseUiScene/VBoxContainer/Activity TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Div 5 Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Races"]
+layout_mode = 2
+text = "Div 5"
+
+[node name="Div 10 Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Races"]
+layout_mode = 2
+text = "Div 10"
+
+[node name="Div 15 Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Races"]
+layout_mode = 2
+text = "Div 15"
+
+[node name="Div 20 Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Races"]
+layout_mode = 2
+text = "Div 20"
+
+[node name="Div 25 Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Races"]
+layout_mode = 2
+text = "Div 25"
+
+[node name="Div 30 Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Races"]
+layout_mode = 2
+text = "Div 30"
+
+[node name="Unlimited Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Races"]
+layout_mode = 2
+text = "Unlimited"
+
+[node name="Info" type="VBoxContainer" parent="BaseUiScene/VBoxContainer/Activity TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Race Map Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Info"]
+layout_mode = 2
+text = "See the Map of the Race Track"
+
+[node name="Winners Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Info"]
+layout_mode = 2
+text = "Winners Log"
+
+[connection signal="pressed" from="BaseUiScene/VBoxContainer/HBoxContainer/OK Button" to="." method="_on_ok_button_pressed"]
+[connection signal="pressed" from="BaseUiScene/VBoxContainer/HBoxContainer/Cancel Button" to="." method="_on_cancel_button_pressed"]
+
+[editable path="BaseUiScene"]

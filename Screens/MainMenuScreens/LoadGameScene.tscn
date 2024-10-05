@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnqecgeopiy6e"]
+
+[ext_resource type="Script" path="res://Screens/MainMenuScreens/load_game_scene.gd" id="1_23cjk"]
+[ext_resource type="PackedScene" uid="uid://f77t4dd6qskq" path="res://Screens/BaseUIScene.tscn" id="1_x8qfy"]
+
+[node name="LoadGameScene" type="Node2D"]
+script = ExtResource("1_23cjk")
+
+[node name="BaseUiScene" parent="." instance=ExtResource("1_x8qfy")]
+
+[node name="VBoxContainer" parent="BaseUiScene" index="0"]
+offset_left = 38.0
+offset_top = 33.0
+offset_bottom = 733.0
+
+[node name="Title" parent="BaseUiScene/VBoxContainer" index="0"]
+text = "Load Game"
+
+[node name="Label" type="Label" parent="BaseUiScene/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Load a saved game
+
+(TODO load and populate a list here)"
+autowrap_mode = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BaseUiScene/VBoxContainer" index="2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BaseUiScene/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BaseUiScene/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="BaseUiScene/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "Savegame_001"
+
+[node name="Label2" type="Label" parent="BaseUiScene/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 20
+text = "saved on June 1 2024 8:32pm"
+
+[connection signal="pressed" from="BaseUiScene/VBoxContainer/HBoxContainer/OK Button" to="." method="_on_ok_button_pressed"]
+[connection signal="pressed" from="BaseUiScene/VBoxContainer/HBoxContainer/Cancel Button" to="." method="_on_cancel_button_pressed"]
+
+[editable path="BaseUiScene"]

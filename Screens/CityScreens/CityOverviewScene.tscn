@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=3 uid="uid://glgi14f2sjln"]
+
+[ext_resource type="Script" path="res://Screens/CityScreens/city_overview_scene.gd" id="1_g3f17"]
+[ext_resource type="PackedScene" uid="uid://f77t4dd6qskq" path="res://Screens/BaseUIScene.tscn" id="2_1yw0b"]
+[ext_resource type="Texture2D" uid="uid://cybef2f707fe7" path="res://Screens/CityScreens/city_thumb.png" id="3_rl6ms"]
+
+[node name="CityOverviewScene" type="Node2D"]
+script = ExtResource("1_g3f17")
+
+[node name="BaseUiScene" parent="." instance=ExtResource("2_1yw0b")]
+
+[node name="TextureRect" parent="BaseUiScene" index="0"]
+texture = ExtResource("3_rl6ms")
+
+[node name="VBoxContainer" parent="BaseUiScene" index="1"]
+offset_left = 38.0
+offset_top = 33.0
+offset_bottom = 733.0
+
+[node name="Title" parent="BaseUiScene/VBoxContainer" index="0"]
+text = "City: <TODO CITYNAME>"
+
+[node name="Label" type="Label" parent="BaseUiScene/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "<TODO populate list from data>"
+autowrap_mode = 3
+
+[node name="Activity TabContainer" type="TabContainer" parent="BaseUiScene/VBoxContainer" index="2"]
+layout_mode = 2
+current_tab = 0
+
+[node name="Buildings" type="VBoxContainer" parent="BaseUiScene/VBoxContainer/Activity TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Arena Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Buildings"]
+layout_mode = 2
+text = "Arena"
+
+[node name="RaceTrack Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Buildings"]
+layout_mode = 2
+text = "Race Track"
+
+[node name="Car Showroom Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Buildings"]
+layout_mode = 2
+text = "Forg Motors Car Showroom"
+
+[node name="Factory Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Buildings"]
+layout_mode = 2
+text = "Factory"
+
+[node name="Weapons Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Buildings"]
+layout_mode = 2
+text = "Cousin Al's Weapons and Ammo"
+
+[node name="Bar Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Buildings"]
+layout_mode = 2
+text = "Joe's Bar
+"
+
+[node name="TruckStop Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Buildings"]
+layout_mode = 2
+text = "Truck Stop"
+
+[node name="FixIt Shoppe Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Buildings"]
+layout_mode = 2
+text = "Hank's Fix-it Shoppe"
+
+[node name="Salvage Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Buildings"]
+layout_mode = 2
+text = "Salvage Yard
+"
+
+[node name="Bus Depot Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Buildings"]
+layout_mode = 2
+text = "Bus Depot"
+
+[node name="Blimp Field Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Buildings"]
+layout_mode = 2
+text = "Blimp Field"
+
+[node name="Hospital Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Buildings"]
+layout_mode = 2
+text = "Hospital"
+
+[node name="Other" type="VBoxContainer" parent="BaseUiScene/VBoxContainer/Activity TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Highway Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Other"]
+layout_mode = 2
+text = "Plan a Highway Trip"
+
+[node name="SaveGame Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Other"]
+layout_mode = 2
+text = "Save Game"
+
+[connection signal="pressed" from="BaseUiScene/VBoxContainer/HBoxContainer/OK Button" to="." method="_on_ok_button_pressed"]
+[connection signal="pressed" from="BaseUiScene/VBoxContainer/HBoxContainer/Cancel Button" to="." method="_on_cancel_button_pressed"]
+
+[editable path="BaseUiScene"]

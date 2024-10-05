@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwdl4cm314jlh"]
+
+[ext_resource type="Script" path="res://Screens/CityScreens/city_overview_scene.gd" id="1_0ndxl"]
+[ext_resource type="PackedScene" uid="uid://f77t4dd6qskq" path="res://Screens/BaseUIScene.tscn" id="1_88lx0"]
+
+[node name="NewGameScene" type="Node2D"]
+script = ExtResource("1_0ndxl")
+
+[node name="BaseUiScene" parent="." instance=ExtResource("1_88lx0")]
+
+[node name="VBoxContainer" parent="BaseUiScene" index="0"]
+offset_left = 38.0
+offset_top = 33.0
+offset_bottom = 733.0
+
+[node name="Title" parent="BaseUiScene/VBoxContainer" index="0"]
+text = "New Game"
+
+[node name="Label" type="Label" parent="BaseUiScene/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+text = "Start a new game"
+autowrap_mode = 3
+
+[connection signal="pressed" from="BaseUiScene/VBoxContainer/HBoxContainer/OK Button" to="." method="_on_ok_button_pressed"]
+[connection signal="pressed" from="BaseUiScene/VBoxContainer/HBoxContainer/Cancel Button" to="." method="_on_cancel_button_pressed"]
+
+[editable path="BaseUiScene"]

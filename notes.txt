@@ -1,0 +1,8 @@
+got some tiles drawing scaled correctly
+
+TODO:
+  [X] pan the map using kb
+  [X] pan the map using mouse
+  [X] load and draw 5 deg tiles
+  [X] zoom the map using kb
+  [X] zoom the map using mouse wheel
