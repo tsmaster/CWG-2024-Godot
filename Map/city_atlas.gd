@@ -5,6 +5,7 @@ const TILE_DATA_DICT_FILENAME : String  = "res://Map/Tiles/tileGrid.json"
 
 var tile_dict: Dictionary = {}
 
+# TODO make this an array of CityObject
 var city_list: Array = []
 
 var city_key_to_city_index: Dictionary = {}
@@ -15,6 +16,7 @@ func makeCityKey(city_short_name: String, state_abbr: String) -> String:
 	var sa = state_abbr.to_lower()
 	return sa+"|"+csn
 	
+# TODO replace city_dict with CityObject
 func addCityDict(city_short_name: String, state_abbr: String, city_dict: Dictionary) -> int:
 	var city_key = makeCityKey(city_short_name, state_abbr)
 	city_list.append(city_dict)
@@ -58,10 +60,12 @@ func findCityIndex(short_city_name:String, state_abbr:String) -> int :
 		return -1
 	return city_key_to_city_index[key]
 
+# TODO replace the dictionary with a CityObject
 func getCityObject(short_city_name:String, state_abbr:String) -> Dictionary:
 	var city_index = findCityIndex(short_city_name, state_abbr)
 	return getCityObjectByIndex(city_index)
 	
+# TODO replace the dictionary with a CityObject
 func getCityObjectByIndex(city_index: int) -> Dictionary:
 	assert((city_index >= 0) and (city_index < len(city_list)))
 	return city_list[city_index]
