@@ -22,3 +22,7 @@ func _on_ok_button_pressed():
 
 func _on_cancel_button_pressed():
 	get_tree().change_scene_to_file("res://Screens/CityScreens/CityOverviewScene.tscn")
+
+
+func _on_race_map_button_pressed():
+	get_tree().change_scene_to_file("res://Screens/CityScreens/Buildings/RaceTrack/race_track_vis.tscn")

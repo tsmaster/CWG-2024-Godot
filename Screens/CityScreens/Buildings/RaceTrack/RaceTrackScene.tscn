@@ -78,6 +78,7 @@ text = "See the Map of the Race Track"
 layout_mode = 2
 text = "Winners Log"
 
+[connection signal="pressed" from="BaseUiScene/VBoxContainer/Activity TabContainer/Info/Race Map Button" to="." method="_on_race_map_button_pressed"]
 [connection signal="pressed" from="BaseUiScene/VBoxContainer/HBoxContainer/OK Button" to="." method="_on_ok_button_pressed"]
 [connection signal="pressed" from="BaseUiScene/VBoxContainer/HBoxContainer/Cancel Button" to="." method="_on_cancel_button_pressed"]
 
