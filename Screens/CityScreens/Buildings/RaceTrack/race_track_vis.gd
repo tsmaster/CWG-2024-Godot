@@ -42,7 +42,7 @@ func drawLoop(sites, loop):
 			break
 		var c1:Vector2 = sites[loop[i]].center
 		var c2:Vector2 = sites[loop[j]].center
-		print(i, ") ", c1.x, " ", c1.y, " - ", c2.x, " ", c2.y)
+		#print(i, ") ", c1.x, " ", c1.y, " - ", c2.x, " ", c2.y)
 		var new_line = Line2D.new()
 		new_line.add_point(c1)
 		new_line.add_point(c2)
@@ -158,11 +158,22 @@ func findSiteIndex(site: int, site_array:Array) -> int:
 		if s == site:
 			return site_index
 	return -1
+	
+func myShuffle(deck: Array, rng: RandomNumberGenerator) -> void:
+	for i in range(len(deck)):
+		var j = rng.randi_range(0, len(deck) - 1)
+		if j == i:
+			continue
+		var temp = deck[i]
+		deck[i] = deck[j]
+		deck[j] = temp
+
 			
 func findLoopPath(sites: Array, path_so_far: Array, min_steps: int, max_steps: int, rng: RandomNumberGenerator):
 	var adj_sites:Array = findAdjacentSiteIndices(sites, path_so_far[-1])
 	# TODO shuffle using my RNG
-	adj_sites.shuffle()
+	#adj_sites.shuffle()
+	myShuffle(adj_sites, rng)
 	for adj_site_index in adj_sites:
 		var new_path = path_so_far.duplicate()
 		new_path.append(adj_site_index)
