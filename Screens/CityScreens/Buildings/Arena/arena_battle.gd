@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered_exit(body: Node2D) -> void:
 	print ("body entered ", body)
-	var car_body:Car2D = body as Car2D
+	var car_body:PlayerCar2D = body as PlayerCar2D
 	if car_body:
 		print("car entered exit")
 		get_tree().change_scene_to_file("res://Screens/CityScreens/Buildings/Arena/BattleCompleteScene.tscn")

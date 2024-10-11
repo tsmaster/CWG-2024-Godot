@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq2uieqb7vccq"]
+[gd_scene load_steps=4 format=3 uid="uid://ccab5mmgft55c"]
 
-[ext_resource type="Script" path="res://Screens/CityScreens/Buildings/Arena/ArenaBattle/car_2d.gd" id="1_fgawk"]
-[ext_resource type="Texture2D" uid="uid://37u346ffxf42" path="res://Screens/CityScreens/Buildings/Arena/car_red_1.png" id="2_chqht"]
+[ext_resource type="Script" path="res://Screens/CityScreens/Buildings/Arena/ArenaBattle/player_car.gd" id="1_675fs"]
+[ext_resource type="Texture2D" uid="uid://37u346ffxf42" path="res://Screens/CityScreens/Buildings/Arena/car_red_1.png" id="2_b4pme"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7hd5"]
 radius = 33.0
 height = 128.0
 
 [node name="Car2D_CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_fgawk")
+script = ExtResource("1_675fs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
-texture = ExtResource("2_chqht")
+texture = ExtResource("2_b4pme")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
