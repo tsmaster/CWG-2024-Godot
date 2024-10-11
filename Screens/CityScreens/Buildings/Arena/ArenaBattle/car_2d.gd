@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Car2D
 
 
 var wheel_base = 70 # centimeters, front/back between wheels

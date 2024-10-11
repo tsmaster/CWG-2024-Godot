@@ -1,17 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://6qk6eeph7127"]
+[gd_scene load_steps=5 format=3 uid="uid://buuqeg1s6agss"]
 
-[ext_resource type="Script" path="res://Screens/CityScreens/Buildings/Arena/arena_scene.gd" id="1_rs65i"]
-[ext_resource type="PackedScene" uid="uid://f77t4dd6qskq" path="res://Screens/BaseUIScene.tscn" id="2_tpl0t"]
-[ext_resource type="Texture2D" uid="uid://calb3by2ayoaq" path="res://Screens/CityScreens/Buildings/Arena/arena_thumb.png" id="3_pmsbl"]
-[ext_resource type="Script" path="res://Screens/CityScreens/Buildings/Arena/other.gd" id="4_l7rkc"]
+[ext_resource type="Script" path="res://Screens/CityScreens/Buildings/Arena/battle_complete_scene.gd" id="1_etv47"]
+[ext_resource type="PackedScene" uid="uid://f77t4dd6qskq" path="res://Screens/BaseUIScene.tscn" id="2_p62f3"]
+[ext_resource type="Texture2D" uid="uid://be0l6dpmaoujp" path="res://Screens/CityScreens/Buildings/Arena/ArenaBattle/noun-flags-75891.svg" id="3_6pftb"]
+[ext_resource type="Script" path="res://Screens/CityScreens/Buildings/Arena/other.gd" id="4_x2qdd"]
 
-[node name="ArenaScene" type="Node2D"]
-script = ExtResource("1_rs65i")
+[node name="BattleCompleteScene" type="Node2D"]
+script = ExtResource("1_etv47")
 
-[node name="BaseUiScene" parent="." instance=ExtResource("2_tpl0t")]
+[node name="BaseUiScene" parent="." instance=ExtResource("2_p62f3")]
 
 [node name="TextureRect" parent="BaseUiScene" index="0"]
-texture = ExtResource("3_pmsbl")
+offset_right = 986.0
+texture = ExtResource("3_6pftb")
 
 [node name="VBoxContainer" parent="BaseUiScene" index="1"]
 offset_left = 38.0
@@ -19,15 +20,16 @@ offset_top = 33.0
 offset_bottom = 733.0
 
 [node name="Title" parent="BaseUiScene/VBoxContainer" index="0"]
-text = "Arena Name"
+text = "Battle Complete"
 
 [node name="Label" type="Label" parent="BaseUiScene/VBoxContainer" index="1"]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
-text = "<TODO you can fight arena battles here>
-<TODO calendar of events will be procedurally generated>"
+text = "You Win, I guess? 
+<TODO some sort of prize for winning>
+"
 autowrap_mode = 3
 
 [node name="Activity TabContainer" type="TabContainer" parent="BaseUiScene/VBoxContainer" index="2"]
@@ -69,7 +71,7 @@ text = "Unlimited"
 [node name="Other" type="VBoxContainer" parent="BaseUiScene/VBoxContainer/Activity TabContainer"]
 visible = false
 layout_mode = 2
-script = ExtResource("4_l7rkc")
+script = ExtResource("4_x2qdd")
 metadata/_tab_index = 1
 
 [node name="Arena Battle Button" type="Button" parent="BaseUiScene/VBoxContainer/Activity TabContainer/Other"]

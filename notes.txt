@@ -6,3 +6,7 @@ TODO:
   [X] load and draw 5 deg tiles
   [X] zoom the map using kb
   [X] zoom the map using mouse wheel
+
+
+flags by Looo from <a href="https://thenounproject.com/browse/icons/term/flags/" target="_blank" title="flags Icons">Noun Project</a> (CC BY 3.0)
+
