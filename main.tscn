@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://cs838pno7aql6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_jnwhw"]
-[ext_resource type="Texture2D" uid="uid://bdffat1pt3p8g" path="res://Screens/bigdicegameslogo.png" id="1_ples8"]
-[ext_resource type="Texture2D" uid="uid://8rumg7tspuqi" path="res://Screens/carswithgunstitle.png" id="2_mft21"]
-[ext_resource type="Texture2D" uid="uid://t0cyhdq4sd35" path="res://icon.svg" id="3_v8wrd"]
+[ext_resource type="Texture2D" uid="uid://b2k5v3k84754d" path="res://Screens/bigdicegameslogo.png" id="1_ples8"]
+[ext_resource type="Texture2D" uid="uid://d1uodwti1js6d" path="res://Screens/carswithgunstitle.png" id="2_mft21"]
+[ext_resource type="Texture2D" uid="uid://bxcr7jl77ucge" path="res://icon.svg" id="3_v8wrd"]
 [ext_resource type="Script" path="res://splashscreen.gd" id="3_xgk7j"]
-[ext_resource type="Texture2D" uid="uid://xuuu61jsktl2" path="res://Screens/MainMenuScreens/mainmenu.png" id="4_eup57"]
+[ext_resource type="Texture2D" uid="uid://0a4avm8xd6jl" path="res://Screens/MainMenuScreens/mainmenu.png" id="4_eup57"]
 [ext_resource type="Script" path="res://map.gd" id="13_v1lre"]
-[ext_resource type="Texture2D" uid="uid://d0feriiw0sm8n" path="res://sprites/car_red_1.png" id="14_ru5we"]
+[ext_resource type="Texture2D" uid="uid://dn01dji071phg" path="res://sprites/car_red_1.png" id="14_ru5we"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("bdg_screen", "title_screen", "menu_screen", "map_screen", "about_screen")]
 script = ExtResource("1_jnwhw")

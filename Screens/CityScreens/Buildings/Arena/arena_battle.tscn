@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://s0toiutng13x"]
+
+[ext_resource type="PackedScene" uid="uid://dq2uieqb7vccq" path="res://Screens/CityScreens/Buildings/Arena/ArenaBattle/car_2d.tscn" id="1_242g5"]
+[ext_resource type="Texture2D" uid="uid://bug1mtt4r1ncs" path="res://Screens/CityScreens/Buildings/Arena/ArenaBattle/ground.png" id="1_y26fi"]
+
+[node name="ArenaBattle" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(636, 301)
+scale = Vector2(3.544, 2.204)
+texture = ExtResource("1_y26fi")
+
+[node name="Car2d" parent="." instance=ExtResource("1_242g5")]
+position = Vector2(144, 144)

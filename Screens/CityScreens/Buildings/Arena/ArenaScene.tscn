@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Screens/CityScreens/Buildings/Arena/arena_scene.gd" id="1_rs65i"]
 [ext_resource type="PackedScene" uid="uid://f77t4dd6qskq" path="res://Screens/BaseUIScene.tscn" id="2_tpl0t"]
-[ext_resource type="Texture2D" uid="uid://cqnk1x35sma2d" path="res://Screens/CityScreens/Buildings/Arena/arena_thumb.png" id="3_pmsbl"]
+[ext_resource type="Texture2D" uid="uid://calb3by2ayoaq" path="res://Screens/CityScreens/Buildings/Arena/arena_thumb.png" id="3_pmsbl"]
 
 [node name="ArenaScene" type="Node2D"]
 script = ExtResource("1_rs65i")
