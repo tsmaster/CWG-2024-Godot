@@ -69,17 +69,18 @@ func doSteerAbsolute():
 	if desired_angle_deg < 0:
 		return
 		
-	print("desired angle: ", desired_angle_deg)
+	#print("desired angle: ", desired_angle_deg)
 	
 	var ew_axis = Input.get_axis("car_2d_steer_abs_east", "car_2d_steer_abs_west")
 	var ns_axis = Input.get_axis("car_2d_steer_abs_north", "car_2d_steer_abs_south")
 	
 	var throttle = sqrt(ew_axis * ew_axis + ns_axis * ns_axis)
 	
+	acceleration = Vector2.ZERO
 	if throttle > 0.5: 
-		acceleration = transform.x * engine_power
+		acceleration = transform.x * engine_power * BdgMath.map(throttle, 0.5, 1.0, 0.0, 1.0)
 	elif throttle < 0.25:
-		acceleration = transform.x * braking
+		acceleration = transform.x * braking * BdgMath.map(throttle, 0.25, 0.0, 0, 1)
 	
 	var desired_angle_rad = BdgMath.degrees_to_radians(desired_angle_deg)
 	
