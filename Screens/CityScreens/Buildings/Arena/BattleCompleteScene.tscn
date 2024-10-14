@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://buuqeg1s6agss"]
+[gd_scene load_steps=4 format=3 uid="uid://buuqeg1s6agss"]
 
 [ext_resource type="Script" path="res://Screens/CityScreens/Buildings/Arena/battle_complete_scene.gd" id="1_etv47"]
 [ext_resource type="PackedScene" uid="uid://f77t4dd6qskq" path="res://Screens/BaseUIScene.tscn" id="2_p62f3"]
 [ext_resource type="Texture2D" uid="uid://be0l6dpmaoujp" path="res://Screens/CityScreens/Buildings/Arena/ArenaBattle/noun-flags-75891.svg" id="3_6pftb"]
-[ext_resource type="Script" path="res://Screens/CityScreens/Buildings/Arena/other.gd" id="4_x2qdd"]
 
 [node name="BattleCompleteScene" type="Node2D"]
 script = ExtResource("1_etv47")
@@ -43,7 +42,6 @@ metadata/_tab_index = 0
 [node name="Other" type="VBoxContainer" parent="BaseUiScene/VBoxContainer/Activity TabContainer"]
 visible = false
 layout_mode = 2
-script = ExtResource("4_x2qdd")
 metadata/_tab_index = 1
 
 [connection signal="pressed" from="BaseUiScene/VBoxContainer/HBoxContainer/OK Button" to="." method="_on_ok_button_pressed"]

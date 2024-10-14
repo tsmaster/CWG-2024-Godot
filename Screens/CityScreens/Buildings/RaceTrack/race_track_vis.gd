@@ -44,14 +44,19 @@ func drawLoop(sites, loop):
 	var curved_new_line = Line2D.new()
 	curved_new_line.default_color = Color(0.2, 0.2, 0.2)
 	curved_new_line.closed = true
+	#curved_new_line.closed = false
 	
-	for i:int in range(len(loop)):
+	var bg_curved_new_line = Line2D.new()
+	bg_curved_new_line.default_color = Color(0.2, 0.8, 0.2)
+	bg_curved_new_line.closed = true
+	#bg_curved_new_line.closed = false
+	bg_curved_new_line.width = curved_new_line.width * 1.5
+	
+	for i:int in range(len(loop) - 1):
 		var j = (i + 1) % len(loop) 
-		var k = (j + 1) % len(loop)
 	
 		var c1:Vector2 = sites[loop[i]].center
 		var c2:Vector2 = sites[loop[j]].center
-		var c3:Vector2 = sites[loop[k]].center
 		
 		var m12: Vector2 = (c2 + c1) / 2
 		
@@ -60,8 +65,15 @@ func drawLoop(sites, loop):
 		new_line.add_point(c2)
 		
 		new_curve.add_point(m12, m12 - c1, c2 - m12)
+
+	var curve_points = new_curve.tessellate_even_length()
+	
+	#bg_curved_new_line.points = new_curve.get_baked_points()
+	bg_curved_new_line.points = curve_points
+	path_lines.add_child(bg_curved_new_line)
 		
-	curved_new_line.points = new_curve.get_baked_points()
+	#curved_new_line.points = new_curve.get_baked_points()
+	curved_new_line.points = curve_points
 	path_lines.add_child(curved_new_line)
 		
 	
