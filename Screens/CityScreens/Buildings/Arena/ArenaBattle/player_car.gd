@@ -18,12 +18,14 @@ var traction_fast = 2.5
 var traction_slow = 10
 
 var acceleration := Vector2.ZERO
-var steer_direction # ??? "amount the wheels are turned"
+var steer_direction = 0# ??? "amount the wheels are turned"
 
 var bullet_class = preload("res://sprites/bullet-mg.tscn")
 
 var hp = 6
 var starting_hp = hp
+
+var steer_relative: bool = false
 
 var shot_time: float = 0.0
 # 
@@ -36,8 +38,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func get_input():
-	var turn = Input.get_axis("car_2d_left", "car_2d_right")
-	steer_direction = turn * deg_to_rad(steering_angle)
+	if steer_relative:
+		var turn = Input.get_axis("car_2d_left", "car_2d_right")
+		steer_direction = turn * deg_to_rad(steering_angle)
+	else:
+		doSteerAbsolute()
 	if Input.is_action_pressed("car_2d_accelerate"):
 		acceleration = transform.x * engine_power
 	if Input.is_action_pressed("car_2d_brake"):
@@ -49,6 +54,43 @@ func get_input():
 		
 	if Input.is_key_pressed(KEY_C):
 		position = Vector2(400,300)	
+		
+func doSteerAbsolute():
+	var desired_angle_deg:float = -100.0
+	if Input.is_action_pressed("car_2d_steer_abs_west"):
+		desired_angle_deg = 180.0
+	elif Input.is_action_pressed("car_2d_steer_abs_east"):
+		desired_angle_deg = 0.0
+	elif Input.is_action_pressed("car_2d_steer_abs_north"):
+		desired_angle_deg = 270.0
+	elif Input.is_action_pressed("car_2d_steer_abs_south"):
+		desired_angle_deg = 90.0
+
+	if desired_angle_deg < 0:
+		return
+		
+	print("desired angle: ", desired_angle_deg)
+	
+	var ew_axis = Input.get_axis("car_2d_steer_abs_east", "car_2d_steer_abs_west")
+	var ns_axis = Input.get_axis("car_2d_steer_abs_north", "car_2d_steer_abs_south")
+	
+	var throttle = sqrt(ew_axis * ew_axis + ns_axis * ns_axis)
+	
+	if throttle > 0.5: 
+		acceleration = transform.x * engine_power
+	elif throttle < 0.25:
+		acceleration = transform.x * braking
+	
+	var desired_angle_rad = BdgMath.degrees_to_radians(desired_angle_deg)
+	
+	var relative_heading = desired_angle_rad - rotation
+	if relative_heading < -PI:
+		relative_heading += 2 * PI
+	if relative_heading > PI:
+		relative_heading -= 2 * PI
+	var steering_angle_rad = BdgMath.degrees_to_radians(steering_angle)
+	var clamped_heading = BdgMath.clamp(relative_heading, -steering_angle_rad, steering_angle_rad)
+	steer_direction = clamped_heading
 		
 func shoot():
 	var bullet_obj = bullet_class.instantiate()
