@@ -153,10 +153,8 @@ func _ready():
 	
 
 func calcFades() -> Array[float]:
-	var center_lat_lon: LatLon = getCenterLatLon()
-	#print("Center LatLon ", center_lat_lon)
-	var degrees_per_mile: Array[float] = BdgMath.mile_to_degrees_at_latitude_degrees(center_lat_lon.lat)
-	#print("dpm: ", degrees_per_mile)
+	var loc_center_lat_lon: LatLon = getCenterLatLon()
+	var degrees_per_mile: Array[float] = BdgMath.mile_to_degrees_at_latitude_degrees(loc_center_lat_lon.lat)
 	var deg_per_mile_lon = degrees_per_mile[1]
 	
 	var deg_per_pixel_lon = deg_per_mile_lon * miles_per_pixel
@@ -170,9 +168,7 @@ func calcFades() -> Array[float]:
 		var sz = size_list[sz_index]
 		var rendered_tile_width = sz / deg_per_pixel_lon
 		widths[sz_index] = rendered_tile_width
-		#print ("width for sz(%d deg): %f px" % [sz, rendered_tile_width])
 
-	#print("widths: ", widths)		
 	var alphas:Array[float]
 	alphas.resize(len(size_list))
 	
@@ -206,7 +202,7 @@ func applyFades(alphas: Array[float]) -> void:
 	for sz_index in len(size_list):
 		var sz = size_list[sz_index]
 		var alpha = alphas[sz_index]
-		var layer:CanvasModulate = layer_dict[sz]
+		#var layer:CanvasModulate = layer_dict[sz]
 		for c in layer_dict[sz].get_children():
 			var tile:Sprite2D = c as Sprite2D
 			tile.self_modulate = Color(1.0, 1.0, 1.0, alpha)
@@ -347,7 +343,7 @@ func getCenterLatLon() -> LatLon:
 	
 func offsetView(deltaLat: float, deltaLon:float) -> void:
 	#print("offsetting view ", deltaLat, " ", deltaLon)
-	var center_lat_lon = getCenterLatLon()
+	#var loc_center_lat_lon = getCenterLatLon()
 
 	var degrees_per_mile: Array[float] = BdgMath.mile_to_degrees_at_latitude_degrees(center_lat)
 	var deg_per_mile_lat = degrees_per_mile[0]
