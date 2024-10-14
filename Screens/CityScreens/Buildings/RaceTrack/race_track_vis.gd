@@ -36,17 +36,34 @@ func _ready():
 	drawLoop(sites, loop)
 
 func drawLoop(sites, loop):
+	
+	var EASE:float = 0.9
+	
+	var new_curve = Curve2D.new()
+
+	var curved_new_line = Line2D.new()
+	curved_new_line.default_color = Color(0.2, 0.2, 0.2)
+	curved_new_line.closed = true
+	
 	for i:int in range(len(loop)):
-		var j = i + 1
-		if j >= len(loop):
-			break
+		var j = (i + 1) % len(loop) 
+		var k = (j + 1) % len(loop)
+	
 		var c1:Vector2 = sites[loop[i]].center
 		var c2:Vector2 = sites[loop[j]].center
-		#print(i, ") ", c1.x, " ", c1.y, " - ", c2.x, " ", c2.y)
+		var c3:Vector2 = sites[loop[k]].center
+		
+		var m12: Vector2 = (c2 + c1) / 2
+		
 		var new_line = Line2D.new()
 		new_line.add_point(c1)
 		new_line.add_point(c2)
-		path_lines.add_child(new_line)
+		
+		new_curve.add_point(m12, m12 - c1, c2 - m12)
+		
+	curved_new_line.points = new_curve.get_baked_points()
+	path_lines.add_child(curved_new_line)
+		
 	
 func makeRandomColor(rng: RandomNumberGenerator) -> Color:
 	var red = rng.randf_range(0.0, 1.0)
