@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5uu6sf6f2wjx"]
+
+[ext_resource type="Script" path="res://Tracery/tracery_test.gd" id="1_84nfw"]
+
+[node name="TraceryTest" type="Node2D"]
+script = ExtResource("1_84nfw")
