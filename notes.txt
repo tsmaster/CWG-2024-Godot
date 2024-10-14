@@ -10,3 +10,5 @@ TODO:
 
 flags by Looo from <a href="https://thenounproject.com/browse/icons/term/flags/" target="_blank" title="flags Icons">Noun Project</a> (CC BY 3.0)
 
+<a href="https://iconscout.com/icons/wrench" class="text-underline font-size-sm" target="_blank">Wrench</a> by <a href="https://iconscout.com/contributors/greepit-icons" class="text-underline font-size-sm">Greepit Icons</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>
+
