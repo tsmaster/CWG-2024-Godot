@@ -20,6 +20,12 @@ var traction_slow = 10
 var acceleration := Vector2.ZERO
 var steer_direction # ??? "amount the wheels are turned"
 
+var bullet_class = preload("res://sprites/bullet-mg.tscn")
+
+var hp = 6
+var starting_hp = hp
+
+var shot_time: float = 0.0
 # 
 func _physics_process(delta: float) -> void:
 	acceleration = Vector2.ZERO
@@ -37,9 +43,19 @@ func get_input():
 	if Input.is_action_pressed("car_2d_brake"):
 		acceleration = transform.x * braking
 		
+	if Input.is_action_just_pressed("car_2d_shoot"):
+		print("bang")
+		shoot()
+		
 	if Input.is_key_pressed(KEY_C):
 		position = Vector2(400,300)	
 		
+func shoot():
+	var bullet_obj = bullet_class.instantiate()
+	get_tree().root.add_child(bullet_obj)
+	gBulletMgr.addBullet(BulletMgr.BulletTeam.TEAM_PLAYER, position, transform.x, bullet_obj)
+	shot_time = gGameMgr.getTimeNow()
+
 func apply_friction(delta):
 	if acceleration == Vector2.ZERO and velocity.length() < 50:
 		velocity = Vector2.ZERO
@@ -72,5 +88,11 @@ func calculate_steering(delta):
 	#velocity = new_heading * velocity.length()
 	rotation = new_heading.angle()
 	
+
+func takeDamage():
+	hp -= 1
+	
+func isDead():
+	return hp <= 0
 	
 	

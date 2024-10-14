@@ -17,4 +17,5 @@ func _on_cancel_button_pressed():
 
 
 func _on_arena_battle_button_pressed() -> void:
+	print("going to battle")
 	get_tree().change_scene_to_file("res://Screens/CityScreens/Buildings/Arena/arena_battle.tscn")

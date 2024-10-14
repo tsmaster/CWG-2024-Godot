@@ -183,8 +183,6 @@ func calcFades() -> Array[float]:
 	else:
 		for i in range(len(size_list)-1):
 			var j = i+1
-			var sz_i = size_list[i]
-			var sz_j = size_list[j]
 			var w_i = widths[i]
 			var w_j = widths[j]
 			if ((w_i <= target_tile_pixel_width) and

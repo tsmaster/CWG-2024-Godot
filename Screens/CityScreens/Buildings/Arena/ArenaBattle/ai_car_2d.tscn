@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bn38pmdwborqe"]
+[gd_scene load_steps=4 format=3 uid="uid://bn38pmdwborqe"]
 
+[ext_resource type="Script" path="res://Screens/CityScreens/Buildings/Arena/ArenaBattle/ai_car.gd" id="1_ec07m"]
 [ext_resource type="Texture2D" uid="uid://cbxlvi5tfswkm" path="res://Screens/CityScreens/Buildings/Arena/car_blue_2.png" id="2_kq72y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7hd5"]
@@ -7,6 +8,7 @@ radius = 33.0
 height = 128.0
 
 [node name="Car2D_CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ec07m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
@@ -17,3 +19,5 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_s7hd5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(0.2, 0.2)
