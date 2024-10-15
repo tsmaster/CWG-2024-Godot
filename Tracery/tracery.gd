@@ -179,6 +179,17 @@ class Grammar extends RefCounted:
 	func get_rng() -> RandomNumberGenerator:
 		return rng
 		
+	func replace_one( base_string : String, source_string : String, dest_string : String):
+		var src_index = base_string.find(source_string)
+		if src_index < 0:
+			return base_string
+			
+		var source_length = len(source_string)
+			
+		var before = base_string.substr(0, src_index)
+		var after = base_string.substr(src_index + source_length, -1)
+
+		return before + dest_string + after
 		
 	func flatten( rule : String ) -> String:
 		var expansion_matches = _expansion_regex.search_all( rule )
@@ -222,7 +233,7 @@ class Grammar extends RefCounted:
 				
 				resolved = _apply_modifiers( resolved, modifiers )
 				
-				rule = rule.replace( match_value, resolved )
+				rule = replace_one( rule, match_value, resolved )
 			else:
 				var resolved = flatten( selected_rule )
 				
