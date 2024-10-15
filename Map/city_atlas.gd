@@ -60,13 +60,20 @@ func findCityIndex(short_city_name:String, state_abbr:String) -> int :
 		return -1
 	return city_key_to_city_index[key]
 
-# TODO replace the dictionary with a CityObject
-func getCityObject(short_city_name:String, state_abbr:String) -> Dictionary:
+func getCityObject(short_city_name:String, state_abbr:String) -> CityObject:
 	var city_index = findCityIndex(short_city_name, state_abbr)
 	return getCityObjectByIndex(city_index)
 	
-# TODO replace the dictionary with a CityObject
-func getCityObjectByIndex(city_index: int) -> Dictionary:
+func getCityObjectByIndex(city_index: int) -> CityObject:
+	assert((city_index >= 0) and (city_index < len(city_list)))
+	var city_dict = getCityDictByIndex(city_index)
+	var city_object = CityObject.new(city_dict)
+	return city_object
+	
+func getCityDict(short_city_name:String, state_abbr:String) -> Dictionary:
+	var city_index = findCityIndex(short_city_name, state_abbr)
+	return getCityDictByIndex(city_index)
+	
+func getCityDictByIndex(city_index: int) -> Dictionary:
 	assert((city_index >= 0) and (city_index < len(city_list)))
 	return city_list[city_index]
-	

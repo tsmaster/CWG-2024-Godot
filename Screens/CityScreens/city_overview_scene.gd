@@ -19,7 +19,7 @@ extends Node2D
 @onready var blimp_field_button = $"BaseUiScene/VBoxContainer/Activity TabContainer/Buildings/Blimp Field Button"
 @onready var hospital_button = $"BaseUiScene/VBoxContainer/Activity TabContainer/Buildings/Hospital Button"
 
-var city_object: Dictionary = {}
+var city_object: CityObject
 
 enum Buildings {
 	BLDG_ARENA,
@@ -43,7 +43,9 @@ enum Buildings {
 func _ready():
 	city_object = gCityAtlas.getCityObject(gGameMgr.cur_city_short_name, gGameMgr.cur_state_abbr)
 	title.text = "City: " + city_object.city_name + ", " + gGameMgr.cur_state_abbr.to_upper()
-	label.text = "Population %d\nTODO: this list of buttons will be populated based on procgen content" % city_object.population
+	label.text = "Population %d\nTODO: this list of buttons will be populated based on procgen content" % city_object.getPopulation()
+	
+	bar_button.text = city_object.getBarName()
 	
 	bindButton(arena_button, _on_arena_button_pressed)
 	bindButton(race_track_button, _on_race_track_button_pressed)

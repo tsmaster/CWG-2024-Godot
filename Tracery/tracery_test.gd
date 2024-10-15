@@ -52,6 +52,17 @@ func _ready() -> void:
 		"tan", "ashen", "lilac", "rose"]
 	grammar_test["colors"] = ["#baseColor# and #baseColor#"]
 	
+	grammar_test["mansName"] = ["Joe", "Mike", "Aaron", "Ben", "Brad", "Chet", "Carl"]
+	
+	grammar_test["womansName"] = ["Abby", "Betty", "Chrissy", "Delilah", "Emily"]
+	
+	grammar_test["personsName"] = ["#mansName#", "#womansName#"]
+	
+	grammar_test["namedBar"] = ["#personsName#'s Bar",
+		"#personsName#'s Bar and Grill",
+		"#personsName#'s Pub",
+		"#personsName# and #personsName#'s Bar"]
+	
 	# Create our grammar
 	var grammar = Tracery.Grammar.new( grammar_test )
 
@@ -66,9 +77,14 @@ func _ready() -> void:
 		#var sentence = grammar.flatten("#sentence#")
 		#print(sentence)
 		#
+	#for i in range( 0, 25 ):
+		#var sentence = grammar.flatten("#bar#")
+		#print(sentence)
+		
 	for i in range( 0, 25 ):
-		var sentence = grammar.flatten("#bar#")
+		var sentence = grammar.flatten("#namedBar#")
 		print(sentence)
+		
 
 	#for i in range( 0, 5 ):
 		#var sentence = grammar.flatten("#colors#")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Screens/CityScreens/city_overview_scene.gd" id="1_g3f17"]
 [ext_resource type="PackedScene" uid="uid://f77t4dd6qskq" path="res://Screens/BaseUIScene.tscn" id="2_1yw0b"]
-[ext_resource type="Texture2D" uid="uid://cybef2f707fe7" path="res://Screens/CityScreens/city_thumb.png" id="3_rl6ms"]
+[ext_resource type="Texture2D" uid="uid://chcackvqgcwl8" path="res://Screens/CityScreens/city_thumb.png" id="3_rl6ms"]
 
 [node name="CityOverviewScene" type="Node2D"]
 script = ExtResource("1_g3f17")

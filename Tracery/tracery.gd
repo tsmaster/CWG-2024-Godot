@@ -135,14 +135,17 @@ class UniversalModifiers extends Modifiers:
 				
 # Main grammar
 class Grammar extends RefCounted:
-	var rng : RandomNumberGenerator = null #setget set_rng, get_rng # The random number generator
-	
+	var rng : RandomNumberGenerator = null : # The random number generator
+		set(_rng):
+			rng = _rng
+		get:
+			return rng
+		
 	var _modifier_lookup : Dictionary = {} # Modifier function table
 	var _rules : Dictionary = {} # The rules
 	var _save_data : Dictionary = {} # The saved data
 	var _expansion_regex : RegEx = null # The expansion regex
 	var _save_symbol_regex : RegEx = null # The save symbol regex
-	
 	
 	func _init( rules : Dictionary ):
 		# Expansion regex
@@ -170,14 +173,6 @@ class Grammar extends RefCounted:
 	func add_modifiers( modifiers : Dictionary ) -> void:
 		for k in modifiers.keys():
 			_modifier_lookup[ k ] = modifiers[ k ]
-			
-			
-	func set_rng( in_rng : RandomNumberGenerator ) -> void:
-		rng = in_rng
-		
-		
-	func get_rng() -> RandomNumberGenerator:
-		return rng
 		
 	func replace_one( base_string : String, source_string : String, dest_string : String):
 		var src_index = base_string.find(source_string)
