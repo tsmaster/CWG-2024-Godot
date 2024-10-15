@@ -3,7 +3,7 @@ extends Node2D
 @onready var title = $BaseUiScene/VBoxContainer/Title
 @onready var label = $BaseUiScene/VBoxContainer/Label
 
-var city_object:Dictionary = {}
+var city_object:CityObject
 
 func _ready():
 	city_object = gCityAtlas.getCityObject(gGameMgr.cur_city_short_name, gGameMgr.cur_state_abbr)

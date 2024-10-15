@@ -11,8 +11,10 @@ enum CITY_SEED
 	CITY_ARENA_SEED = 1,
 	CITY_BUILDING_SEED = 2,
 	CITY_BAR_SEED = 3,
+	CITY_ARENA_NAME_SEED = 4, # is this how I'm doing it?
+	CITY_RACETRACK_NAME_SEED = 5,
 	
-	COUNT = 4
+	COUNT = 6
 }
 
 var rng_seed:int
@@ -49,13 +51,47 @@ func getBarName() -> String:
 	rules["bar_name"]= [
 		"Joe's Bar and Grill",
 		"Dan's Bar",
-		"Emily's Bar"]
+		"Emily's Bar",
+		"Foo's Bar and Swill"]
 	var grammar = Tracery.Grammar.new(rules)
 	var bar_rng = RandomNumberGenerator.new()
 	bar_rng.set_seed(bar_seed)
 	grammar.rng = bar_rng
 
 	return grammar.flatten("#bar_name#")
+
+func getArenaName() -> String:
+	var arena_name_seed = getInternalSeed(CITY_SEED.CITY_ARENA_NAME_SEED)
+	var rules = Dictionary()
+	rules["arena_name"]= [
+		city_name + " Arena",
+		city_name + " Pro/Am Arena",
+		"Memorial Arena",
+		"Mega Arena",
+		city_name + " Municipal Arena"]
+	var grammar = Tracery.Grammar.new(rules)
+	var arena_rng = RandomNumberGenerator.new()
+	arena_rng.set_seed(arena_name_seed)
+	grammar.rng = arena_rng
+
+	return grammar.flatten("#arena_name#")
+
+func getRaceTrackName() -> String:
+	var track_name_seed = getInternalSeed(CITY_SEED.CITY_RACETRACK_NAME_SEED)
+	var rules = Dictionary()
+	rules["track_name"]= [
+		city_name + " Racetrack",
+		city_name + " Track",
+		"Memorial Track",
+		"Mega Track",
+		city_name + " Municipal Motorsport Facility"]
+	var grammar = Tracery.Grammar.new(rules)
+	var track_rng = RandomNumberGenerator.new()
+	track_rng.set_seed(track_name_seed)
+	grammar.rng = track_rng
+
+	return grammar.flatten("#track_name#")
+
 
 func getPopulation() -> int:
 	return population

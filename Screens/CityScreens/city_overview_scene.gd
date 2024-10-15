@@ -46,6 +46,8 @@ func _ready():
 	label.text = "Population %d\nTODO: this list of buttons will be populated based on procgen content" % city_object.getPopulation()
 	
 	bar_button.text = city_object.getBarName()
+	arena_button.text = city_object.getArenaName()
+	race_track_button.text = city_object.getRaceTrackName()
 	
 	bindButton(arena_button, _on_arena_button_pressed)
 	bindButton(race_track_button, _on_race_track_button_pressed)

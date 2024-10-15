@@ -5,17 +5,15 @@ extends Node2D
 @onready var texture_rect = $"BaseUiScene/VBoxContainer/Activity TabContainer/Info/TextureRect"
 @onready var texture_rect_2 = $"BaseUiScene/VBoxContainer/Activity TabContainer/Info/TextureRect2"
 
-var city_dict:Dictionary = {}
 var city_object:CityObject
 
 func _ready():
-	city_dict = gCityAtlas.getCityObject(gGameMgr.cur_city_short_name, gGameMgr.cur_state_abbr)
-	city_object = CityObject.new(city_dict.seed)
+	city_object = gCityAtlas.getCityObject(gGameMgr.cur_city_short_name, gGameMgr.cur_state_abbr)
 	
-	title.text = city_dict.city_name + " Race Track"
+	title.text = city_object.getRaceTrackName()
 	
 	var rng = RandomNumberGenerator.new()
-	rng.set_seed(city_object.getInternalSeed(city_dict.seed, CityObject.CITY_SEED.CITY_RACETRACK_SEED))
+	rng.set_seed(city_object.getInternalSeed(CityObject.CITY_SEED.CITY_RACETRACK_SEED))
 	for i in range(10):
 		print("r ", i, " : ", rng.randi_range(0, 10))
 		
