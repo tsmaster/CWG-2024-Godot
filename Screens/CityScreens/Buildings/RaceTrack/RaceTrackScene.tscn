@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Screens/CityScreens/Buildings/RaceTrack/race_track_scene.gd" id="1_m2fqp"]
 [ext_resource type="PackedScene" uid="uid://f77t4dd6qskq" path="res://Screens/BaseUIScene.tscn" id="2_rohax"]
-[ext_resource type="Texture2D" uid="uid://beeyshhwpvhkw" path="res://Screens/CityScreens/Buildings/RaceTrack/race_track_thumb.png" id="3_f2du4"]
+[ext_resource type="Texture2D" uid="uid://h4si06jgsyvq" path="res://Screens/CityScreens/Buildings/RaceTrack/race_track_thumb.png" id="3_f2du4"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_7wquv"]
 resource_local_to_scene = true

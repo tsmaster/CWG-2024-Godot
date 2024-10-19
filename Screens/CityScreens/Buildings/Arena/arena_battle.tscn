@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://s0toiutng13x"]
 
 [ext_resource type="Script" path="res://Screens/CityScreens/Buildings/Arena/arena_battle.gd" id="1_nxq8t"]
-[ext_resource type="Texture2D" uid="uid://bug1mtt4r1ncs" path="res://Screens/CityScreens/Buildings/Arena/ArenaBattle/ground.png" id="1_y26fi"]
+[ext_resource type="Texture2D" uid="uid://cws7b2rc31qdv" path="res://Screens/CityScreens/Buildings/Arena/ArenaBattle/ground.png" id="1_y26fi"]
 [ext_resource type="TileSet" uid="uid://cplaqt5iutbqy" path="res://Screens/CityScreens/Buildings/Arena/ArenaBattle/tile_set.tres" id="1_yuntx"]
 [ext_resource type="PackedScene" uid="uid://ccab5mmgft55c" path="res://Screens/CityScreens/Buildings/Arena/ArenaBattle/pl_car_2d.tscn" id="4_qyky2"]
 [ext_resource type="PackedScene" uid="uid://bn38pmdwborqe" path="res://Screens/CityScreens/Buildings/Arena/ArenaBattle/ai_car_2d.tscn" id="5_it1lu"]

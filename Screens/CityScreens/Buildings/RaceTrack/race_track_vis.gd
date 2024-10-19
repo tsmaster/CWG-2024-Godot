@@ -10,11 +10,10 @@ var city_object:CityObject
 func _ready():
 	print("Race Track Visualization")
 
-	city_dict = gCityAtlas.getCityObject(gGameMgr.cur_city_short_name, gGameMgr.cur_state_abbr)
-	city_object = CityObject.new(city_dict.seed)
+	city_object = gCityAtlas.getCityObject(gGameMgr.cur_city_short_name, gGameMgr.cur_state_abbr)
 	
 	var rng = RandomNumberGenerator.new()
-	rng.set_seed(city_object.getInternalSeed(city_dict.seed, CityObject.CITY_SEED.CITY_RACETRACK_SEED))
+	rng.set_seed(city_object.getInternalSeed(CityObject.CITY_SEED.CITY_RACETRACK_SEED))
 	
 	var nodes:Array = makeBridson(rng)
 	var delaunayFactory = Delaunay.new(get_viewport_rect())

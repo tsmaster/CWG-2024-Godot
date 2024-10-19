@@ -41,12 +41,13 @@ func get_input():
 	if steer_relative:
 		var turn = Input.get_axis("car_2d_left", "car_2d_right")
 		steer_direction = turn * deg_to_rad(steering_angle)
+		
+		if Input.is_action_pressed("car_2d_accelerate"):
+			acceleration = transform.x * engine_power
+		if Input.is_action_pressed("car_2d_brake"):
+			acceleration = transform.x * braking
 	else:
 		doSteerAbsolute()
-	if Input.is_action_pressed("car_2d_accelerate"):
-		acceleration = transform.x * engine_power
-	if Input.is_action_pressed("car_2d_brake"):
-		acceleration = transform.x * braking
 		
 	if Input.is_action_just_pressed("car_2d_shoot"):
 		print("bang")
@@ -56,25 +57,24 @@ func get_input():
 		position = Vector2(400,300)	
 		
 func doSteerAbsolute():
-	var desired_angle_deg:float = -100.0
-	if Input.is_action_pressed("car_2d_steer_abs_west"):
-		desired_angle_deg = 180.0
-	elif Input.is_action_pressed("car_2d_steer_abs_east"):
-		desired_angle_deg = 0.0
-	elif Input.is_action_pressed("car_2d_steer_abs_north"):
-		desired_angle_deg = 270.0
-	elif Input.is_action_pressed("car_2d_steer_abs_south"):
-		desired_angle_deg = 90.0
-
-	if desired_angle_deg < 0:
-		return
-		
+	#var desired_angle_deg:float = -100.0
+	#if Input.is_action_pressed("car_2d_steer_abs_west"):
+		#desired_angle_deg = 180.0
+	#elif Input.is_action_pressed("car_2d_steer_abs_east"):
+		#desired_angle_deg = 0.0
+	#elif Input.is_action_pressed("car_2d_steer_abs_north"):
+		#desired_angle_deg = 270.0
+	#elif Input.is_action_pressed("car_2d_steer_abs_south"):
+		#desired_angle_deg = 90.0
+#
+	#if desired_angle_deg < 0:
+		#return
 	
 	var ew_axis = Input.get_axis("car_2d_steer_abs_west", "car_2d_steer_abs_east")
 	var ns_axis = Input.get_axis("car_2d_steer_abs_north", "car_2d_steer_abs_south")
 	
 	var angle = atan2(ns_axis, ew_axis)
-	desired_angle_deg = BdgMath.radians_to_degrees(angle)
+	var desired_angle_deg:float = BdgMath.radians_to_degrees(angle)
 	print("desired angle: ", desired_angle_deg)
 	
 	var throttle = sqrt(ew_axis * ew_axis + ns_axis * ns_axis)
